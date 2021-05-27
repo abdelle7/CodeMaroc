@@ -20,15 +20,23 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          options={{ headerShown: false }}
+          options={{ headerShown: false, title: "الرئيسية" }}
           name={"home"}
           component={drawerNav}
         />
-        <Stack.Screen name={"sign"} component={SignsScreen} />
+        <Stack.Screen
+          options={{ title: "العلامات" }}
+          name={"sign"}
+          component={SignsScreen}
+        />
         <Stack.Screen name={"lessons"} component={LessonsScreen} />
         <Stack.Screen name={"quiz"} component={QuizScreen} />
         <Stack.Screen name={"compulsion"} component={CompulsionScreen} />
-        <Stack.Screen name={"danger"} component={DangerScreen} />
+        <Stack.Screen
+          options={{ title: "علامات الخطر" }}
+          name={"danger"}
+          component={DangerScreen}
+        />
         <Stack.Screen name={"banExpires"} component={BanExpiresScreen} />
         <Stack.Screen name={"ban"} component={BanScreen} />
         <Stack.Screen name={"instructions"} component={InstructionsScreen} />

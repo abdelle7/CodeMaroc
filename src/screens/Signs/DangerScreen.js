@@ -4,12 +4,9 @@ import { disableExpoTranslucentStatusBar } from "react-navigation-collapsible";
 disableExpoTranslucentStatusBar();
 import { useCollapsibleHeader } from "react-navigation-collapsible";
 import ImageButton from "../../components/ImageButton";
+import { signs } from "../../helper/allSings";
 
 const DangerScreen = ({ navigation }) => {
-  const data = [];
-  for (let i = 0; i < 29; i++) {
-    data.push(i);
-  }
   const {
     onScroll,
     // onScrollWithListener,
@@ -27,7 +24,7 @@ const DangerScreen = ({ navigation }) => {
     },
   });
   return (
-    <View style={styles.ViewButton}>
+    <View style={styles.container}>
       <Animated.FlatList
         onScroll={onScroll}
         horizontal={false}
@@ -35,23 +32,18 @@ const DangerScreen = ({ navigation }) => {
         columnWrapperStyle={{ justifyContent: "space-between" }}
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
         scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}
-        keyExtractor={(index) => index.toString()}
-        data={data}
+        keyExtractor={(index) => index.name}
+        data={signs.danger}
         renderItem={({ item }) => {
-          return (
-            <ImageButton
-              title="BendLeft"
-              isSign={true}
-              imageSource={require("../../../assets/Signs/WarningSigns/DoubleBendFirstLeft.png")}
-            />
-          );
+          const img = "assets/Signs/WarningSigns/BendLeft.png";
+          return <ImageButton isSign={true} imageSource={item.path} />;
         }}
       />
     </View>
   );
 };
 const styles = StyleSheet.create({
-  ViewButton: {
+  container: {
     alignItems: "center",
   },
   image: {
