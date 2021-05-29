@@ -1,25 +1,12 @@
 import React from "react";
-import { FlatList, Text, View, Animated } from "react-native";
+import { View, Animated, StyleSheet } from "react-native";
 import { disableExpoTranslucentStatusBar } from "react-navigation-collapsible";
 disableExpoTranslucentStatusBar();
 import { useCollapsibleHeader } from "react-navigation-collapsible";
+import ImageButton from "../../components/ImageButton";
+import { signs } from "../../helper/allSings";
 
-const CompulsionScreen = ({ navigation }) => {
-  const Numbers = [
-    { num: 1 },
-    { num: 2 },
-    { num: 3 },
-    { num: 4 },
-    { num: 5 },
-    { num: 6 },
-    { num: 7 },
-    { num: 8 },
-    { num: 9 },
-    { num: 10 },
-    { num: 11 },
-    { num: 12 },
-    { num: 13 },
-  ];
+const EndObligationScreen = () => {
   const {
     onScroll,
     // onScrollWithListener,
@@ -37,19 +24,30 @@ const CompulsionScreen = ({ navigation }) => {
     },
   });
   return (
-    <View>
+    <View style={styles.container}>
       <Animated.FlatList
         onScroll={onScroll}
+        horizontal={false}
+        numColumns={2}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
         scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}
-        data={Numbers}
-        keyExtractor={(Numbers) => Numbers.num}
+        keyExtractor={(index) => index.name}
+        data={signs.EndObligation}
         renderItem={({ item }) => {
-          return <Text style={{ paddingTop: 100 }}>{item.num}</Text>;
+          return <ImageButton isSign={true} imageSource={item.path} />;
         }}
       />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+  },
+  image: {
+    flex: 1,
+  },
+});
 
-export default CompulsionScreen;
+export default EndObligationScreen;

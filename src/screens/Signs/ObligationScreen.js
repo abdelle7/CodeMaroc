@@ -6,7 +6,7 @@ import { useCollapsibleHeader } from "react-navigation-collapsible";
 import ImageButton from "../../components/ImageButton";
 import { signs } from "../../helper/allSings";
 
-const DangerScreen = ({ navigation }) => {
+const ObligationScreen = ({ navigation }) => {
   const {
     onScroll,
     // onScrollWithListener,
@@ -33,7 +33,7 @@ const DangerScreen = ({ navigation }) => {
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
         scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}
         keyExtractor={(index) => index.name}
-        data={signs.danger}
+        data={signs.Obligation}
         renderItem={({ item }) => {
           return <ImageButton isSign={true} imageSource={item.path} />;
         }}
@@ -49,4 +49,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-export default DangerScreen;
+
+export default ObligationScreen;

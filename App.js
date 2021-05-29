@@ -7,12 +7,13 @@ import drawerNav from "./src/screens/drawerNav";
 import SignsScreen from "./src/screens/SignsScreen";
 import LessonsScreen from "./src/screens/LessonsScreen";
 import QuizScreen from "./src/screens/QuizScreen";
-import CompulsionScreen from "./src/screens/Signs/CompulsionScreen";
+import ObligationScreen from "./src/screens/Signs/ObligationScreen";
 import DangerScreen from "./src/screens/Signs/DangerScreen";
 import BanExpiresScreen from "./src/screens/Signs/BanExpiresScreen";
 import BanScreen from "./src/screens/Signs/BanScreen";
 import InstructionsScreen from "./src/screens/Signs/InstructionsScreen";
 import IntersectionScreen from "./src/screens/Signs/IntersectionScreen";
+import EndObligationScreen from "./src/screens/Signs/EndObligationScreen";
 export default function App() {
   const Stack = createStackNavigator();
 
@@ -31,7 +32,11 @@ export default function App() {
         />
         <Stack.Screen name={"lessons"} component={LessonsScreen} />
         <Stack.Screen name={"quiz"} component={QuizScreen} />
-        <Stack.Screen name={"compulsion"} component={CompulsionScreen} />
+        <Stack.Screen
+          options={{ title: "علامات الإجبار" }}
+          name={"obligation"}
+          component={ObligationScreen}
+        />
         <Stack.Screen
           options={{ title: "علامات الخطر" }}
           name={"danger"}
@@ -41,6 +46,7 @@ export default function App() {
         <Stack.Screen name={"ban"} component={BanScreen} />
         <Stack.Screen name={"instructions"} component={InstructionsScreen} />
         <Stack.Screen name={"intersection"} component={IntersectionScreen} />
+        <Stack.Screen name={"endObligation"} component={EndObligationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
