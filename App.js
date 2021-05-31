@@ -42,11 +42,31 @@ export default function App() {
           name={"danger"}
           component={DangerScreen}
         />
-        <Stack.Screen name={"banExpires"} component={BanExpiresScreen} />
-        <Stack.Screen name={"ban"} component={BanScreen} />
-        <Stack.Screen name={"instructions"} component={InstructionsScreen} />
-        <Stack.Screen name={"intersection"} component={IntersectionScreen} />
-        <Stack.Screen name={"endObligation"} component={EndObligationScreen} />
+        <Stack.Screen
+          options={{ title: "علامات نهاية المنع" }}
+          name={"banExpires"}
+          component={BanExpiresScreen}
+        />
+        <Stack.Screen
+          options={{ title: "علامات المنع" }}
+          name={"ban"}
+          component={BanScreen}
+        />
+        <Stack.Screen
+          options={{ title: "علامات الإرشاد" }}
+          name={"instructions"}
+          component={InstructionsScreen}
+        />
+        <Stack.Screen
+          options={{ title: "علامات التقاطع" }}
+          name={"intersection"}
+          component={IntersectionScreen}
+        />
+        <Stack.Screen
+          options={{ title: "علامات نهاية الإجبار" }}
+          name={"endObligation"}
+          component={EndObligationScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -297,6 +297,188 @@ export const signs = {
   ],
   ban: [
     {
+      name: "NoVehicles",
+      path: require("../../assets/Signs/BanSigns/NoVehicles.png"),
+    },
+    {
+      name: "NoEntry",
+      path: require("../../assets/Signs/BanSigns/NoEntry.png"),
+    },
+    {
+      name: "NoTurnLeft",
+      path: require("../../assets/Signs/BanSigns/NoTurnLeft.png"),
+    },
+    {
+      name: "NoTurnRight",
+      path: require("../../assets/Signs/BanSigns/NoTurnRight.png"),
+    },
+    {
+      name: "NoUTurns",
+      path: require("../../assets/Signs/BanSigns/NoUTurns.png"),
+    },
+    {
+      name: "NoOvertaking",
+      path: require("../../assets/Signs/BanSigns/NoOvertaking.png"),
+    },
+    {
+      name: "NoOvertakingLorries",
+      path: require("../../assets/Signs/BanSigns/NoOvertakingLorries.png"),
+    },
+    {
+      name: "NoParking",
+      path: require("../../assets/Signs/BanSigns/NoParking.png"),
+    },
+    {
+      name: "ParkingRestrictions115",
+      path: require("../../assets/Signs/BanSigns/ParkingRestrictions115.png"),
+    },
+    {
+      name: "ParkingRestrictions1631",
+      path: require("../../assets/Signs/BanSigns/ParkingRestrictions1631.png"),
+    },
+    {
+      name: "NoStopping",
+      path: require("../../assets/Signs/BanSigns/NoStopping.png"),
+    },
+    {
+      name: "NoVehiclesExceptMotors",
+      path: require("../../assets/Signs/BanSigns/NoVehiclesExceptMotors.png"),
+    },
+    {
+      name: "NoLorries",
+      path: require("../../assets/Signs/BanSigns/NoLorries.png"),
+    },
+    {
+      name: "NoMotorVehiclesExceptMopeds",
+      path: require("../../assets/Signs/BanSigns/NoMotorVehiclesExceptMopeds.png"),
+    },
+    {
+      name: "NoMotorVehiclesIncludingMopeds",
+      path: require("../../assets/Signs/BanSigns/NoMotorVehiclesIncludingMopeds.png"),
+    },
+    {
+      name: "NoPedestrians",
+      path: require("../../assets/Signs/BanSigns/NoPedestrians.png"),
+    },
+    {
+      name: "NoHorse-drawnVehicles",
+      path: require("../../assets/Signs/BanSigns/NoHorse-drawnVehicles.png"),
+    },
+    {
+      name: "NoTractors",
+      path: require("../../assets/Signs/BanSigns/NoTractors.png"),
+    },
+    {
+      name: "NoHandcarts",
+      path: require("../../assets/Signs/BanSigns/NoHandcarts.png"),
+    },
+    {
+      name: "NoBuses",
+      path: require("../../assets/Signs/BanSigns/NoBuses.png"),
+    },
+    {
+      name: "LengthLimit",
+      path: require("../../assets/Signs/BanSigns/LengthLimit.png"),
+    },
+    {
+      name: "NoVehiclesTowingCaravans",
+      path: require("../../assets/Signs/BanSigns/NoVehiclesTowingCaravans.png"),
+    },
+    {
+      name: "NoMotorcycles",
+      path: require("../../assets/Signs/BanSigns/NoMotorcycles.png"),
+    },
+    {
+      name: "NoMopeds",
+      path: require("../../assets/Signs/BanSigns/NoMopeds.png"),
+    },
+    {
+      name: "WeightLimit",
+      path: require("../../assets/Signs/BanSigns/WeightLimit.png"),
+    },
+    {
+      name: "WidthLimit",
+      path: require("../../assets/Signs/BanSigns/WidthLimit.png"),
+    },
+    {
+      name: "HeightLimit",
+      path: require("../../assets/Signs/BanSigns/HeightLimit.png"),
+    },
+    {
+      name: "SpeedLimit",
+      path: require("../../assets/Signs/BanSigns/SpeedLimit.png"),
+    },
+    {
+      name: "MinimumDistance",
+      path: require("../../assets/Signs/BanSigns/MinimumDistance.png"),
+    },
+    {
+      name: "NoSoundingHorns",
+      path: require("../../assets/Signs/BanSigns/NoSoundingHorns.png"),
+    },
+    {
+      name: "CarryingExplosives",
+      path: require("../../assets/Signs/BanSigns/CarryingExplosives.png"),
+    },
+    {
+      name: "CarryingWaterPollutants",
+      path: require("../../assets/Signs/BanSigns/CarryingWaterPollutants.png"),
+    },
+    {
+      name: "CarryingDangerousGoods",
+      path: require("../../assets/Signs/BanSigns/CarryingDangerousGoods.png"),
+    },
+    {
+      name: "AxleWeightLimit",
+      path: require("../../assets/Signs/BanSigns/AxleWeightLimit.png"),
+    },
+    {
+      name: "StopDouane",
+      path: require("../../assets/Signs/BanSigns/StopDouane.png"),
+    },
+    {
+      name: "RoadCheck",
+      path: require("../../assets/Signs/BanSigns/RoadCheck.png"),
+    },
+    {
+      name: "StopPayment",
+      path: require("../../assets/Signs/BanSigns/StopPayment.png"),
+    },
+    {
+      name: "StopGendarmerie",
+      path: require("../../assets/Signs/BanSigns/StopGendarmerie.png"),
+    },
+    {
+      name: "StopPolice",
+      path: require("../../assets/Signs/BanSigns/StopPolice.png"),
+    },
+    {
+      name: "StopSnowFence",
+      path: require("../../assets/Signs/BanSigns/StopSnowFence.png"),
+    },
+    {
+      name: "NoCycling",
+      path: require("../../assets/Signs/BanSigns/NoCycling.png"),
+    },
+    {
+      name: "PriorityOncoming",
+      path: require("../../assets/Signs/BanSigns/PriorityOncoming.png"),
+    },
+  ],
+  EndBan: [
+    {
+      name: "John",
+      path: "asdasd",
+    },
+  ],
+  Intersection: [
+    {
+      name: "John",
+      path: "asdasd",
+    },
+  ],
+  Instructions: [
+    {
       name: "John",
       path: "asdasd",
     },
