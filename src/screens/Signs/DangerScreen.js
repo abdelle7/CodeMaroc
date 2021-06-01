@@ -33,7 +33,7 @@ const DangerScreen = ({ navigation }) => {
         contentContainerStyle={{ paddingTop: containerPaddingTop }}
         scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}
         keyExtractor={(index) => index.name}
-        data={signs.danger}
+        data={signs.Danger}
         renderItem={({ item }) => {
           return <ImageButton isSign={true} imageSource={item.path} />;
         }}

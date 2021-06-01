@@ -33,7 +33,7 @@ export const categoriesSigns = [
 ];
 
 export const signs = {
-  danger: [
+  Danger: [
     {
       name: "BendRight",
       path: require("../../assets/Signs/WarningSigns/BendRight.png"),
@@ -467,14 +467,66 @@ export const signs = {
   ],
   EndBan: [
     {
-      name: "John",
-      path: "asdasd",
+      name: "EndRestriction",
+      path: require("../../assets/Signs/EndBanSigns/EndRestriction.png"),
+    },
+    {
+      name: "EndSpeedLimit",
+      path: require("../../assets/Signs/EndBanSigns/EndSpeedLimit.png"),
+    },
+    {
+      name: "EndNoOvertaking",
+      path: require("../../assets/Signs/EndBanSigns/EndNoOvertaking.png"),
+    },
+    {
+      name: "EndNoOvertakingLorries",
+      path: require("../../assets/Signs/EndBanSigns/EndNoOvertakingLorries.png"),
+    },
+    {
+      name: "EndNoSoundingHorns",
+      path: require("../../assets/Signs/EndBanSigns/EndNoSoundingHorns.png"),
     },
   ],
   Intersection: [
     {
-      name: "John",
-      path: "asdasd",
+      name: "StopAra",
+      path: require("../../assets/Signs/IntersectionSigns/StopAra.png"),
+    },
+    {
+      name: "StopEng",
+      path: require("../../assets/Signs/IntersectionSigns/StopEng.png"),
+    },
+    {
+      name: "GiveWay",
+      path: require("../../assets/Signs/IntersectionSigns/GiveWay.png"),
+    },
+    {
+      name: "StopSignAhead",
+      path: require("../../assets/Signs/IntersectionSigns/StopSignAhead.png"),
+    },
+    {
+      name: "GiveWaySignAhead",
+      path: require("../../assets/Signs/IntersectionSigns/GiveWaySignAhead.png"),
+    },
+    {
+      name: "Roundabout",
+      path: require("../../assets/Signs/IntersectionSigns/Roundabout.png"),
+    },
+    {
+      name: "Crossroads",
+      path: require("../../assets/Signs/IntersectionSigns/Crossroads.png"),
+    },
+    {
+      name: "CrossroadsWithPriority",
+      path: require("../../assets/Signs/IntersectionSigns/CrossroadsWithPriority.png"),
+    },
+    {
+      name: "PriorityRoad",
+      path: require("../../assets/Signs/IntersectionSigns/PriorityRoad.png"),
+    },
+    {
+      name: "EndPriorityRoad",
+      path: require("../../assets/Signs/IntersectionSigns/EndPriorityRoad.png"),
     },
   ],
   Instructions: [
