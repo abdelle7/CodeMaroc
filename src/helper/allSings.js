@@ -531,8 +531,184 @@ export const signs = {
   ],
   Instructions: [
     {
-      name: "John",
-      path: "asdasd",
+      name: "Parking",
+      path: require("../../assets/Signs/InstructionSigns/Parking.png"),
+    },
+    {
+      name: "FirstAid",
+      path: require("../../assets/Signs/InstructionSigns/FirstAid.png"),
+    },
+    {
+      name: "Phone",
+      path: require("../../assets/Signs/InstructionSigns/Phone.png"),
+    },
+    {
+      name: "PhoneSos",
+      path: require("../../assets/Signs/InstructionSigns/PhoneSos.png"),
+    },
+    {
+      name: "CaravanSite",
+      path: require("../../assets/Signs/InstructionSigns/CaravanSite.png"),
+    },
+    {
+      name: "Campsite",
+      path: require("../../assets/Signs/InstructionSigns/Campsite.png"),
+    },
+    {
+      name: "YouthHostel",
+      path: require("../../assets/Signs/InstructionSigns/YouthHostel.png"),
+    },
+    {
+      name: "PicnicSite",
+      path: require("../../assets/Signs/InstructionSigns/PicnicSite.png"),
+    },
+    {
+      name: "Coffee",
+      path: require("../../assets/Signs/InstructionSigns/Coffee.png"),
+    },
+    {
+      name: "Resturant",
+      path: require("../../assets/Signs/InstructionSigns/Resturant.png"),
+    },
+    {
+      name: "Hotel",
+      path: require("../../assets/Signs/InstructionSigns/Hotel.png"),
+    },
+    {
+      name: "SelfCateringAccommodation",
+      path: require("../../assets/Signs/InstructionSigns/SelfCateringAccommodation.png"),
+    },
+    {
+      name: "Toilets",
+      path: require("../../assets/Signs/InstructionSigns/Toilets.png"),
+    },
+    {
+      name: "ServicesForDisabled",
+      path: require("../../assets/Signs/InstructionSigns/ServicesForDisabled.png"),
+    },
+    {
+      name: "GazStation",
+      path: require("../../assets/Signs/InstructionSigns/GazStation.png"),
+    },
+    {
+      name: "wheelsInflation",
+      path: require("../../assets/Signs/InstructionSigns/wheelsInflation.png"),
+    },
+    {
+      name: "RiskFire",
+      path: require("../../assets/Signs/InstructionSigns/RiskFire.png"),
+    },
+    {
+      name: "Playground",
+      path: require("../../assets/Signs/InstructionSigns/Playground.png"),
+    },
+    {
+      name: "Repairs",
+      path: require("../../assets/Signs/InstructionSigns/Repairs.png"),
+    },
+    {
+      name: "Information",
+      path: require("../../assets/Signs/InstructionSigns/Information.png"),
+    },
+    {
+      name: "Taxis",
+      path: require("../../assets/Signs/InstructionSigns/Taxis.png"),
+    },
+    {
+      name: "Hospital",
+      path: require("../../assets/Signs/InstructionSigns/Hospital.png"),
+    },
+    {
+      name: "OneWayRoad",
+      path: require("../../assets/Signs/InstructionSigns/OneWayRoad.png"),
+    },
+    {
+      name: "BreakdownBay",
+      path: require("../../assets/Signs/InstructionSigns/BreakdownBay.png"),
+    },
+    {
+      name: "TramCrossing",
+      path: require("../../assets/Signs/InstructionSigns/TramCrossing.png"),
+    },
+    {
+      name: "PedestrianCrossing",
+      path: require("../../assets/Signs/InstructionSigns/PedestrianCrossing.png"),
+    },
+    {
+      name: "PedestrianCycleRoute",
+      path: require("../../assets/Signs/InstructionSigns/PedestrianCycleRoute.png"),
+    },
+    {
+      name: "EndPedestrianCycleRoute",
+      path: require("../../assets/Signs/InstructionSigns/EndPedestrianCycleRoute.png"),
+    },
+    {
+      name: "EmergencyExitRight",
+      path: require("../../assets/Signs/InstructionSigns/EmergencyExitRight.png"),
+    },
+    {
+      name: "EmergencyExitLeft",
+      path: require("../../assets/Signs/InstructionSigns/EmergencyExitLeft.png"),
+    },
+    {
+      name: "NoThroughRoad",
+      path: require("../../assets/Signs/InstructionSigns/NoThroughRoad.png"),
+    },
+    {
+      name: "NoThroughRoadRight",
+      path: require("../../assets/Signs/InstructionSigns/NoThroughRoadRight.png"),
+    },
+    {
+      name: "EscapeLaneRight",
+      path: require("../../assets/Signs/InstructionSigns/EscapeLaneRight.png"),
+    },
+    {
+      name: "EscapeLaneLeft",
+      path: require("../../assets/Signs/InstructionSigns/EscapeLaneLeft.png"),
+    },
+    {
+      name: "Motorway",
+      path: require("../../assets/Signs/InstructionSigns/Motorway.png"),
+    },
+    {
+      name: "EndMotorway",
+      path: require("../../assets/Signs/InstructionSigns/EndMotorway.png"),
+    },
+    {
+      name: "Tunnel",
+      path: require("../../assets/Signs/InstructionSigns/Tunnel.png"),
+    },
+    {
+      name: "EndTunnel",
+      path: require("../../assets/Signs/InstructionSigns/EndTunnel.png"),
+    },
+    {
+      name: "SpeedHumps",
+      path: require("../../assets/Signs/InstructionSigns/SpeedHumps.png"),
+    },
+    {
+      name: "LanesMerge",
+      path: require("../../assets/Signs/InstructionSigns/LanesMerge.png"),
+    },
+    {
+      name: "Ticket",
+      path: require("../../assets/Signs/InstructionSigns/Ticket.png"),
+    },
+    {
+      name: "MannedTollbooth",
+      path: require("../../assets/Signs/InstructionSigns/MannedTollbooth.png"),
+    },
+    {
+      name: "TollPaymentCash",
+      path: require("../../assets/Signs/InstructionSigns/TollPaymentCash.png"),
+    },
+    {
+      name: "TollPaymentCreditCard",
+      path: require("../../assets/Signs/InstructionSigns/TollPaymentCreditCard.png"),
+    },
+    {
+      name: "TollPaymentJAWAZ",
+      path: require("../../assets/Signs/InstructionSigns/TollPaymentJAWAZ.png"),
     },
   ],
 };
