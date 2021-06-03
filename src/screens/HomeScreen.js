@@ -26,6 +26,7 @@ const HomeScreen = ({ navigation }) => {
             color={"black"}
           />
         </TouchableOpacity>
+
         <View style={styles.container}>
           <View style={styles.ViewButton}>
             <ImageButton
@@ -39,11 +40,13 @@ const HomeScreen = ({ navigation }) => {
               imageSource={require("../../assets/HomeScreen/LessonsButton.png")}
             />
           </View>
-          <ImageButton
-            title="quiz"
-            navigation={navigation}
-            imageSource={require("../../assets/HomeScreen/QuizButton.png")}
-          />
+          <View style={{ flexDirection: "row", justifyContent: "center" }}>
+            <ImageButton
+              title="quiz"
+              navigation={navigation}
+              imageSource={require("../../assets/HomeScreen/QuizButton.png")}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -60,6 +63,7 @@ const styles = StyleSheet.create({
   },
   ViewButton: {
     flexDirection: "row",
+    justifyContent: "center",
     marginBottom: 80,
   },
   iconStyle: {

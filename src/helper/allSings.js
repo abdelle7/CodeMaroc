@@ -1,5 +1,48 @@
 import React from "react";
 
+export const LessonsCategories = [
+  {
+    name: "Overtaking",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/Overtaking.png"),
+  },
+  {
+    name: "ParkAndStop",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/ParkAndStop.png"),
+  },
+  {
+    name: "Accidents",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/Accidents.png"),
+  },
+  {
+    name: "RulesRoad",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/RulesRoad.png"),
+  },
+  {
+    name: "VisionAndLights",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/VisionAndLights.png"),
+  },
+  {
+    name: "PriorityGive",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/PriorityGive.png"),
+  },
+  {
+    name: "vehicle",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/vehicle.png"),
+  },
+  {
+    name: "Driver",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/Driver.png"),
+  },
+  {
+    name: "RoadSignaling",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/RoadSignaling.png"),
+  },
+  {
+    name: "AppliedConcepts",
+    path: require("../../assets/LessonsScreenAssets/LessonsCategories/AppliedConcepts.png"),
+  },
+];
+
 export const categoriesSigns = [
   {
     name: "intersection",
