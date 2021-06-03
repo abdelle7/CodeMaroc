@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Text, View, Animated, StyleSheet } from "react-native";
+import { View, Animated, StyleSheet } from "react-native";
 import { disableExpoTranslucentStatusBar } from "react-navigation-collapsible";
 disableExpoTranslucentStatusBar();
 import { useCollapsibleHeader } from "react-navigation-collapsible";
