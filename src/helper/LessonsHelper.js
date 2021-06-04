@@ -150,3 +150,237 @@ export const ParkAndStop = [
     path: require("../../assets/LessonsScreenAssets/ParkAndStop/Q19.png"),
   },
 ];
+export const Accidents = [
+  {
+    name: "Q1",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q1.png"),
+  },
+  {
+    name: "Q2",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q2.png"),
+  },
+  {
+    name: "Q3",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q3.png"),
+  },
+  {
+    name: "Q4",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q4.png"),
+  },
+  {
+    name: "Q5",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q5.png"),
+  },
+  {
+    name: "Q6",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q6.png"),
+  },
+  {
+    name: "Q7",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q7.png"),
+  },
+  {
+    name: "Q8",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q8.png"),
+  },
+  {
+    name: "Q9",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q9.png"),
+  },
+  {
+    name: "Q10",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q10.png"),
+  },
+  {
+    name: "Q11",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q11.png"),
+  },
+  {
+    name: "Q12",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q12.png"),
+  },
+  {
+    name: "Q13",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q13.png"),
+  },
+  {
+    name: "Q14",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q14.png"),
+  },
+  {
+    name: "Q15",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q15.png"),
+  },
+  {
+    name: "Q16",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q16.png"),
+  },
+  {
+    name: "Q17",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q17.png"),
+  },
+  {
+    name: "Q18",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q18.png"),
+  },
+  {
+    name: "Q19",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q19.png"),
+  },
+  {
+    name: "Q20",
+    path: require("../../assets/LessonsScreenAssets/Accidents/Q20.png"),
+  },
+];
+export const RulesRoad = [
+  {
+    name: "Q1",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q1.png"),
+  },
+  {
+    name: "Q2",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q2.png"),
+  },
+  {
+    name: "Q3",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q3.png"),
+  },
+  {
+    name: "Q4",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q4.png"),
+  },
+  {
+    name: "Q5",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q5.png"),
+  },
+  {
+    name: "Q6",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q6.png"),
+  },
+  {
+    name: "Q7",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q7.png"),
+  },
+  {
+    name: "Q8",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q8.png"),
+  },
+  {
+    name: "Q9",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q9.png"),
+  },
+  {
+    name: "Q10",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q10.png"),
+  },
+  {
+    name: "Q11",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q11.png"),
+  },
+  {
+    name: "Q12",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q12.png"),
+  },
+  {
+    name: "Q13",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q13.png"),
+  },
+  {
+    name: "Q14",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q14.png"),
+  },
+  {
+    name: "Q15",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q15.png"),
+  },
+  {
+    name: "Q16",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q16.png"),
+  },
+  {
+    name: "Q17",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q17.png"),
+  },
+  {
+    name: "Q18",
+    path: require("../../assets/LessonsScreenAssets/RulesRoad/Q18.png"),
+  },
+];
+export const VisionAndLights = [
+  {
+    name: "Q1",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q1.png"),
+  },
+  {
+    name: "Q2",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q2.png"),
+  },
+  {
+    name: "Q3",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q3.png"),
+  },
+  {
+    name: "Q4",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q4.png"),
+  },
+  {
+    name: "Q5",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q5.png"),
+  },
+  {
+    name: "Q6",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q6.png"),
+  },
+  {
+    name: "Q7",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q7.png"),
+  },
+  {
+    name: "Q8",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q8.png"),
+  },
+  {
+    name: "Q9",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q9.png"),
+  },
+  {
+    name: "Q10",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q10.png"),
+  },
+  {
+    name: "Q11",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q11.png"),
+  },
+  {
+    name: "Q12",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q12.png"),
+  },
+  {
+    name: "Q13",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q13.png"),
+  },
+  {
+    name: "Q14",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q14.png"),
+  },
+  {
+    name: "Q15",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q15.png"),
+  },
+  {
+    name: "Q16",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q16.png"),
+  },
+  {
+    name: "Q17",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q17.png"),
+  },
+  {
+    name: "Q18",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q18.png"),
+  },
+  {
+    name: "Q19",
+    path: require("../../assets/LessonsScreenAssets/VisionAndLights/Q19.png"),
+  },
+];

@@ -1,11 +1,11 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import QuizComponent from "../../components/QuizComponent";
-import { OvertakingQ } from "../../helper/LessonsHelper";
+import { VisionAndLights } from "../../helper/LessonsHelper";
 const VisionAndLightsScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <QuizComponent LessonsList={OvertakingQ} />
+      <QuizComponent LessonsList={VisionAndLights} />
     </SafeAreaView>
   );
 };
