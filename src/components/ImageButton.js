@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
 
-const ImageButton = ({ imageSource, navigation, title, isSign }) => {
+const ImageButton = ({ imageSource, navigation, title, isSign, style }) => {
   return (
     <TouchableOpacity
       disabled={isSign ? true : false}
@@ -9,7 +9,7 @@ const ImageButton = ({ imageSource, navigation, title, isSign }) => {
         navigation.navigate(title);
       }}
     >
-      <Image source={imageSource} />
+      <Image style={style} resizeMode="stretch" source={imageSource} />
     </TouchableOpacity>
   );
 };

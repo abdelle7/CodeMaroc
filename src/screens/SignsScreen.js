@@ -21,9 +21,7 @@ const SignsScreen = ({ navigation }) => {
         <Animated.FlatList
           horizontal={false}
           numColumns={2}
-          ItemSeparatorComponent={() => (
-            <View style={{ marginBottom: -30, backgroundColor: "pink" }} />
-          )}
+          ItemSeparatorComponent={() => <View style={{ marginBottom: -30 }} />}
           columnWrapperStyle={{
             justifyContent: "center",
           }}
