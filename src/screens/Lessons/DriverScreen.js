@@ -1,11 +1,11 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import QuizComponent from "../../components/QuizComponent";
-import { OvertakingQ } from "../../helper/LessonsHelper";
+import { Driver } from "../../helper/LessonsHelper";
 const DriverScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <QuizComponent LessonsList={OvertakingQ} />
+      <QuizComponent LessonsList={Driver} />
     </SafeAreaView>
   );
 };

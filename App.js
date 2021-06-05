@@ -20,7 +20,7 @@ import AccidentsScreen from "./src/screens/Lessons/AccidentsScreen";
 import RulesRoadScreen from "./src/screens/Lessons/RulesRoadScreen";
 import VisionAndLightsScreen from "./src/screens/Lessons/VisionAndLightsScreen";
 import PriorityGiveScreen from "./src/screens/Lessons/PriorityGiveScreen";
-import vehicleScreen from "./src/screens/Lessons/vehicleScreen";
+import VehicleScreen from "./src/screens/Lessons/VehicleScreen";
 import DriverScreen from "./src/screens/Lessons/DriverScreen";
 import RoadSignalingScreen from "./src/screens/Lessons/RoadSignalingScreen";
 import AppliedConceptsScreen from "./src/screens/Lessons/AppliedConceptsScreen";
@@ -117,8 +117,8 @@ export default function App() {
         />
         <Stack.Screen
           options={{ title: "العربة" }}
-          name={"vehicle"}
-          component={vehicleScreen}
+          name={"Vehicle"}
+          component={VehicleScreen}
         />
         <Stack.Screen
           options={{ title: "السائق" }}

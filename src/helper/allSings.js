@@ -26,7 +26,7 @@ export const LessonsCategories = [
     path: require("../../assets/LessonsScreenAssets/LessonsCategories/PriorityGive.png"),
   },
   {
-    name: "vehicle",
+    name: "Vehicle",
     path: require("../../assets/LessonsScreenAssets/LessonsCategories/vehicle.png"),
   },
   {
