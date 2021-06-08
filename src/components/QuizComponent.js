@@ -7,10 +7,9 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { OvertakingQ } from "../helper/LessonsHelper";
 import ImageButton from "./ImageButton";
 
-const QuizComponent = ({ LessonsList }) => {
+const QuizComponent = ({ LessonsList, RealQuiz }) => {
   const [Counter, setCounter] = useState(1);
   const setCounterHelper = (change) => {
     if (Counter + change > LessonsList.length || Counter + change < 1) {
@@ -33,25 +32,27 @@ const QuizComponent = ({ LessonsList }) => {
           imageSource={LessonsList[Counter - 1].path}
         />
       </View>
-      <View style={styles.NextPrevButton}>
-        <TouchableOpacity
-          onPress={() => {
-            setCounterHelper(-1);
-          }}
-        >
-          <Image source={require("../../assets/UIElements/Previous.png")} />
-        </TouchableOpacity>
-        <Text style={styles.TextCounter}>
-          {Counter}/{LessonsList.length}
-        </Text>
-        <TouchableOpacity
-          onPress={() => {
-            setCounterHelper(+1);
-          }}
-        >
-          <Image source={require("../../assets/UIElements/Next.png")} />
-        </TouchableOpacity>
-      </View>
+      {RealQuiz ? null : (
+        <View style={styles.NextPrevButton}>
+          <TouchableOpacity
+            onPress={() => {
+              setCounterHelper(-1);
+            }}
+          >
+            <Image source={require("../../assets/UIElements/Previous.png")} />
+          </TouchableOpacity>
+          <Text style={styles.TextCounter}>
+            {Counter}/{LessonsList.length}
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              setCounterHelper(+1);
+            }}
+          >
+            <Image source={require("../../assets/UIElements/Next.png")} />
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
