@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -12,7 +12,9 @@ import {
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import ImageButton from "../components/ImageButton";
 import QuizComponent from "../components/QuizComponent";
-import { ParkAndStop } from "../helper/LessonsHelper";
+import { Quiz1 } from "../helper/QuizHelper";
+import QuizContext from "../contexts/QuizContext";
+import * as RootNavigation from "../helper/RootNavigation";
 const reducer = (state, action) => {
   switch (action.type) {
     case "A1Selected":
@@ -26,57 +28,74 @@ const reducer = (state, action) => {
     case "Correction":
       return { ...state, A1: false, A2: false, A3: false, A4: false };
     case "Validate":
-      console.log(state.QNumber, state.isCounting, ParkAndStop.length);
-      if (state.QNumber < ParkAndStop.length - 1) {
+      if (state.CurrentQuestion < Quiz1.length - 1) {
+        const userAnswer = [];
+        if (state.A1 === true) userAnswer.push(1);
+        if (state.A2 === true) userAnswer.push(2);
+        if (state.A3 === true) userAnswer.push(3);
+        if (state.A4 === true) userAnswer.push(4);
+
+        return {
+          ...state,
+          Answers: [
+            ...state.Answers,
+            { Qnumber: state.CurrentQuestion, userAnswer },
+          ],
+          A1: false,
+          A2: false,
+          A3: false,
+          A4: false,
+          CurrentQuestion: state.CurrentQuestion + 1,
+        };
+      } else {
+        const userAnswer = [];
+        if (state.A1 === true) userAnswer.push(1);
+        if (state.A2 === true) userAnswer.push(2);
+        if (state.A3 === true) userAnswer.push(3);
+        if (state.A4 === true) userAnswer.push(4);
+        state = {
+          ...state,
+          Answers: [
+            ...state.Answers,
+            { Qnumber: state.CurrentQuestion, userAnswer },
+          ],
+          A1: false,
+          A2: false,
+          A3: false,
+          A4: false,
+          isCounting: false,
+          ButtonDisabled: true,
+        };
+        RootNavigation.navigate("Result", state.Answers);
+
         return {
           ...state,
           A1: false,
           A2: false,
           A3: false,
           A4: false,
-          QNumber: state.QNumber + 1,
+          isCounting: false,
+          ButtonDisabled: true,
         };
       }
-      return {
-        ...state,
-        A1: false,
-        A2: false,
-        A3: false,
-        A4: false,
-        isCounting: false,
-      };
+
     default:
       return state;
   }
 };
 
-const QuizScreen = () => {
+const QuizScreen = ({ navigation }) => {
+  const value = useContext(QuizContext);
   const [state, dispatch] = useReducer(reducer, {
-    QNumber: 0,
+    CurrentQuestion: 0,
     A1: false,
     A2: false,
     A3: false,
     A4: false,
     isCounting: true,
+    Answers: [],
+    ButtonDisabled: false,
   });
-  // const [isSelected1, setSelected1] = useState(false);
-  // const [isSelected2, setSelected2] = useState(false);
-  // const [isSelected3, setSelected3] = useState(false);
-  // const [isSelected4, setSelected4] = useState(false);
-  // const [Counter, setCounter] = useState(1);
-  // const setCounterHelper = (change) => {
-  //   if (Counter + change > ParkAndStop.length || Counter + change < 1) {
-  //     return;
-  //   } else {
-  //     setCounter(Counter + change);
-  //   }
-  // };
-  // const resetSelected = () => {
-  //   setSelected1(false);
-  //   setSelected2(false);
-  //   setSelected3(false);
-  //   setSelected4(false);
-  // };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#D8D8D8" }}>
@@ -87,9 +106,9 @@ const QuizScreen = () => {
             width: Dimensions.get("window").width,
             borderWidth: 1,
           }}
-          title={ParkAndStop[state.QNumber].name}
+          title={Quiz1[state.CurrentQuestion].name}
           isSign={true}
-          imageSource={ParkAndStop[state.QNumber].path}
+          imageSource={Quiz1[state.CurrentQuestion].path}
         />
       </View>
       <View style={styles.container}>
@@ -98,7 +117,7 @@ const QuizScreen = () => {
             <View style={{ marginLeft: 2, marginTop: 20 }}>
               <CountdownCircleTimer
                 isPlaying={state.isCounting}
-                key={state.QNumber}
+                key={state.CurrentQuestion}
                 size={100}
                 duration={4}
                 colors={[
@@ -108,7 +127,6 @@ const QuizScreen = () => {
                 ]}
                 onComplete={() => {
                   dispatch({ type: "Validate" });
-                  return [state.isCounting];
                 }}
               >
                 {({ remainingTime, animatedColor }) => (
@@ -238,6 +256,7 @@ const QuizScreen = () => {
             />
           </TouchableOpacity>
           <TouchableOpacity
+            disabled={state.ButtonDisabled}
             onPress={() => {
               dispatch({ type: "Validate" });
             }}
