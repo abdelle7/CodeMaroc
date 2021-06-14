@@ -24,22 +24,23 @@ const ResultScreen = ({ route }) => {
           scrollEnabled={false}
           numColumns={5}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                RootNavigation.navigate("Correction", {
+                  Answers: Quiz1[item.Qnumber].Anwsers,
+                  userAnswer: item.userAnswer,
+                  path: Quiz1[item.Qnumber].path,
+                });
+              }}
+            >
               <LinearGradient
-                // Button Linear Gradient
                 colors={
                   JSON.stringify(Quiz1[item.Qnumber].Anwsers) ==
                   JSON.stringify(item.userAnswer)
                     ? ["#32FF00", "#32FF00", "#12A600"]
                     : ["#FF2D00", "#FF2D00", "#EE2500"]
                 }
-                style={[
-                  styles.container,
-                  // JSON.stringify(Quiz1[item.Qnumber].Anwsers) ==
-                  // JSON.stringify(item.userAnswer)
-                  //   ? styles.correct
-                  //   : styles.wrong,
-                ]}
+                style={styles.container}
               >
                 {/* <Text>Q:{item.Qnumber}</Text>
             <Text>{item.userAnswer}</Text> */}

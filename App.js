@@ -30,6 +30,7 @@ import { navigationRef } from "./src/helper/RootNavigation";
 import * as RootNavigation from "./src/helper/RootNavigation";
 import { HeaderBackButton } from "@react-navigation/stack";
 import { Root, Popup } from "react-native-popup-confirm-toast";
+import CorrectionScren from "./src/screens/CorrectionScren";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -83,6 +84,11 @@ export default function App() {
                   />
                 ),
               }}
+            />
+            <Stack.Screen
+              options={{ title: "التصحيح" }}
+              name={"Correction"}
+              component={CorrectionScren}
             />
             <Stack.Screen
               options={{ title: "علامات الإجبار" }}
