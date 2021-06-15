@@ -25,7 +25,6 @@ const CorrectionScren = ({ route }) => {
         style={{
           flexDirection: "row",
           flex: 1,
-          marginTop: 30,
         }}
       >
         <View

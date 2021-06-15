@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Image,
   StyleSheet,
@@ -8,6 +8,13 @@ import {
   Dimensions,
 } from "react-native";
 import ImageButton from "./ImageButton";
+import {
+  scale,
+  verticalScale,
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
+import * as Font from "expo-font";
 
 const QuizComponent = ({ LessonsList, RealQuiz }) => {
   const [Counter, setCounter] = useState(1);
@@ -18,6 +25,32 @@ const QuizComponent = ({ LessonsList, RealQuiz }) => {
       setCounter(Counter + change);
     }
   };
+
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  const fonts = {
+    Hayah: require("../../assets/fonts/Hayah.ttf"),
+  };
+  useEffect(() => {
+    (async () => {
+      try {
+        await Font.loadAsync(fonts);
+        setLoaded(true);
+      } catch (err) {
+        setError(err);
+      }
+    })();
+  }),
+    [fonts];
+
+  if (error)
+    return (
+      <View>
+        <Text>{error.message}</Text>
+      </View>
+    );
+  if (!loaded) return null;
+
   return (
     <View>
       <View style={styles.container}>
@@ -25,6 +58,7 @@ const QuizComponent = ({ LessonsList, RealQuiz }) => {
           style={{
             alignSelf: "center",
             width: Dimensions.get("window").width,
+            height: Dimensions.get("window").height / 2.1,
             borderWidth: 1,
           }}
           title={LessonsList[Counter - 1].name}
@@ -53,6 +87,20 @@ const QuizComponent = ({ LessonsList, RealQuiz }) => {
           </TouchableOpacity>
         </View>
       )}
+      {/* <View style={styles.TextView}>
+        <Text
+          style={{
+            textAlign: "right",
+            fontFamily: "Hayah",
+            fontSize: scale(20),
+          }}
+        >
+          هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
+          القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
+          التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ
+          طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا.
+        </Text>
+      </View> */}
     </View>
   );
 };
@@ -79,5 +127,9 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: 90,
     textAlign: "center",
+  },
+  TextView: {
+    marginHorizontal: scale(20),
+    marginVertical: verticalScale(20),
   },
 });

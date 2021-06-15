@@ -1,56 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
   TouchableOpacity,
-  Image,
+  Dimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Root, Popup } from "react-native-popup-confirm-toast";
+import { Root } from "react-native-popup-confirm-toast";
 import * as RootNavigation from "../helper/RootNavigation";
 import { Quiz1 } from "../helper/QuizHelper";
 
 const ResultScreen = ({ route }) => {
+  const [screenHeight, setScreenHeight] = useState(0);
+  const scrollEnabled = screenHeight > Dimensions.get("window").height - 100;
+
   const Answers = route.params;
+  let RightAnswersCounter = 0;
+  for (let index = 0; index < Quiz1.length; index++) {
+    console.log();
+    if (
+      JSON.stringify(Quiz1[index].Anwsers) ==
+      JSON.stringify(Answers[index].userAnswer)
+    ) {
+      RightAnswersCounter++;
+    }
+  }
 
   return (
     <Root>
-      <View>
-        <FlatList
-          keyExtractor={(item, index) => "key" + index}
-          data={Answers}
-          scrollEnabled={false}
-          numColumns={5}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                RootNavigation.navigate("Correction", {
-                  Answers: Quiz1[item.Qnumber].Anwsers,
-                  userAnswer: item.userAnswer,
-                  path: Quiz1[item.Qnumber].path,
-                });
-              }}
-            >
-              <LinearGradient
-                colors={
-                  JSON.stringify(Quiz1[item.Qnumber].Anwsers) ==
-                  JSON.stringify(item.userAnswer)
-                    ? ["#32FF00", "#32FF00", "#12A600"]
-                    : ["#FF2D00", "#FF2D00", "#EE2500"]
-                }
-                style={styles.container}
+      <View style={{ flex: 1, marginBottom: 10, alignItems: "center" }}>
+        <Text style={{ alignSelf: "center", fontSize: 50, fontWeight: "bold" }}>
+          {RightAnswersCounter}/{Quiz1.length}
+        </Text>
+        <View style={{ flex: 1 }}>
+          <FlatList
+            scrollEnabled={scrollEnabled}
+            onContentSizeChange={(width, height) => {
+              setScreenHeight(height);
+            }}
+            keyExtractor={(item, index) => "key" + index}
+            data={Answers}
+            showsVerticalScrollIndicator={false}
+            numColumns={5}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={{ width: "19.5%" }}
+                onPress={() => {
+                  RootNavigation.navigate("Correction", {
+                    Answers: Quiz1[item.Qnumber].Anwsers,
+                    userAnswer: item.userAnswer,
+                    path: Quiz1[item.Qnumber].path,
+                  });
+                }}
               >
-                {/* <Text>Q:{item.Qnumber}</Text>
+                <LinearGradient
+                  colors={
+                    JSON.stringify(Quiz1[item.Qnumber].Anwsers) ==
+                    JSON.stringify(item.userAnswer)
+                      ? ["#32FF00", "#32FF00", "#12A600"]
+                      : ["#FF2D00", "#FF2D00", "#EE2500"]
+                  }
+                  style={styles.container}
+                >
+                  {/* <Text>Q:{item.Qnumber}</Text>
             <Text>{item.userAnswer}</Text> */}
-                <Text style={styles.Qtext}>سؤال {item.Qnumber + 1}</Text>
-                <Text>_______</Text>
-                <Text style={styles.Atext}>{item.userAnswer.join("-")}</Text>
-              </LinearGradient>
-            </TouchableOpacity>
-          )}
-        />
+                  <Text style={styles.Qtext}>سؤال {item.Qnumber + 1}</Text>
+                  <Text>_______</Text>
+                  <Text style={styles.Atext}>{item.userAnswer.join("-")}</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       </View>
     </Root>
   );

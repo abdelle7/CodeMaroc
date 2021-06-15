@@ -1,5 +1,12 @@
-import React from "react";
-import { FlatList, Text, View, Animated, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  FlatList,
+  Text,
+  View,
+  Animated,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import { disableExpoTranslucentStatusBar } from "react-navigation-collapsible";
 disableExpoTranslucentStatusBar();
 import { useCollapsibleHeader } from "react-navigation-collapsible";
@@ -7,6 +14,8 @@ import ImageButton from "../../components/ImageButton";
 import { signs } from "../../helper/allSings";
 
 const BanExpiresScreen = () => {
+  const [screenHeight, setScreenHeight] = useState(0);
+  const scrollEnabled = screenHeight > Dimensions.get("window").height;
   const {
     onScroll,
     // onScrollWithListener,
@@ -27,6 +36,10 @@ const BanExpiresScreen = () => {
     <View style={styles.container}>
       <Animated.FlatList
         onScroll={onScroll}
+        scrollEnabled={scrollEnabled}
+        onContentSizeChange={(width, height) => {
+          setScreenHeight(height);
+        }}
         horizontal={false}
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}

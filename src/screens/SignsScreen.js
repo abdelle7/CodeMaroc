@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   ImageBackground,
@@ -7,6 +7,8 @@ import {
   StyleSheet,
   Animated,
   View,
+  Text,
+  SafeAreaView,
 } from "react-native";
 import ImageButton from "../components/ImageButton";
 
@@ -14,12 +16,17 @@ import { categoriesSigns } from "../helper/allSings";
 
 const SignsScreen = ({ navigation }) => {
   const image = require("../../assets/SignsScreen/SignsScreenBG.png");
-
+  const [screenHeight, setScreenHeight] = useState(0);
+  const scrollEnabled = screenHeight > Dimensions.get("window").height - 80;
   return (
     <ImageBackground source={image} style={styles.image}>
       <View style={styles.container}>
         <Animated.FlatList
           horizontal={false}
+          scrollEnabled={scrollEnabled}
+          onContentSizeChange={(width, height) => {
+            setScreenHeight(height);
+          }}
           numColumns={2}
           ItemSeparatorComponent={() => <View style={{ marginBottom: -30 }} />}
           columnWrapperStyle={{

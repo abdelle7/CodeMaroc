@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CodeMaroc",
-    "slug": "CodeMaroc",
+    "name": "CodeMaroc 2021",
+    "slug": "CodeMaroc-2021",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abdellah.baybay"
     },
     "android": {
       "adaptiveIcon": {

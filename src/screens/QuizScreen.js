@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer, useEffect, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,9 +9,15 @@ import {
   Dimensions,
   Animated,
 } from "react-native";
+import * as Font from "expo-font";
+import {
+  scale,
+  verticalScale,
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import ImageButton from "../components/ImageButton";
-import QuizComponent from "../components/QuizComponent";
 import { Quiz1 } from "../helper/QuizHelper";
 import QuizContext from "../contexts/QuizContext";
 import * as RootNavigation from "../helper/RootNavigation";
@@ -96,14 +102,39 @@ const QuizScreen = ({ navigation }) => {
     Answers: [],
     ButtonDisabled: false,
   });
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  const fonts = {
+    Hayah: require("../../assets/fonts/Hayah.ttf"),
+  };
+  useEffect(() => {
+    (async () => {
+      try {
+        await Font.loadAsync(fonts);
+        setLoaded(true);
+      } catch (err) {
+        setError(err);
+      }
+    })();
+  }),
+    [fonts];
+
+  if (error)
+    return (
+      <View>
+        <Text>{error.message}</Text>
+      </View>
+    );
+  if (!loaded) return null;
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#D8D8D8" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#71B1FF" }}>
       <View>
         <ImageButton
           style={{
             alignSelf: "center",
             width: Dimensions.get("window").width,
+            height: Dimensions.get("window").height / 2.1,
             borderWidth: 1,
           }}
           title={Quiz1[state.CurrentQuestion].name}
@@ -112,14 +143,25 @@ const QuizScreen = ({ navigation }) => {
         />
       </View>
       <View style={styles.container}>
-        <View style={{ marginRight: 10, marginVertical: 10 }}>
+        <View
+          style={{
+            marginRight: 10,
+            marginVertical: moderateScale(10, 10),
+            marginLeft: scale(10),
+          }}
+        >
           <View style={styles.Screen}>
-            <View style={{ marginLeft: 2, marginTop: 20 }}>
+            <View
+              style={{
+                marginLeft: scale(2),
+                marginTop: moderateVerticalScale(15, 5),
+              }}
+            >
               <CountdownCircleTimer
                 isPlaying={state.isCounting}
                 key={state.CurrentQuestion}
-                size={100}
-                duration={4}
+                size={moderateScale(100, 1.4)}
+                duration={30}
                 colors={[
                   ["#0A7530", 0.4],
                   ["#F7B801", 0.4],
@@ -133,7 +175,7 @@ const QuizScreen = ({ navigation }) => {
                   <Animated.Text
                     style={{
                       color: animatedColor,
-                      fontSize: 40,
+                      fontSize: scale(50),
                       // textAlign: "center",
                       // marginTop: 25,
                       // marginRight: 40,
@@ -151,109 +193,253 @@ const QuizScreen = ({ navigation }) => {
                 alignSelf: "flex-end",
                 borderLeftWidth: 2,
                 position: "absolute",
-                paddingRight: 10,
+                paddingRight: moderateVerticalScale(9),
+                justifyContent: "space-between",
               }}
             >
               <Text
                 style={{
-                  fontSize: 30,
+                  fontSize: moderateScale(28),
                   color: state.A1 ? "white" : "#929292",
                   fontWeight: "bold",
                   backgroundColor: state.A1 ? "#002CB6" : null,
-                  paddingLeft: 8,
-                  paddingRight: 8,
+                  paddingLeft: moderateVerticalScale(10),
+                  paddingTop: moderateVerticalScale(1, 15),
+                  height: verticalScale(36),
                 }}
               >
                 1
               </Text>
+
               <Text
                 style={{
-                  fontSize: 30,
+                  fontSize: moderateScale(28),
                   color: state.A2 ? "white" : "#929292",
                   fontWeight: "bold",
                   backgroundColor: state.A2 ? "#002CB6" : null,
-                  paddingLeft: 8,
-                  paddingRight: 8,
+                  paddingLeft: moderateVerticalScale(10),
+                  paddingTop: moderateVerticalScale(1, 15),
+                  height: verticalScale(36),
                 }}
               >
                 2
               </Text>
               <Text
                 style={{
-                  fontSize: 30,
+                  fontSize: moderateScale(28),
                   color: state.A3 ? "white" : "#929292",
                   fontWeight: "bold",
                   backgroundColor: state.A3 ? "#002CB6" : null,
-                  paddingLeft: 8,
-                  paddingRight: 8,
+                  paddingLeft: moderateVerticalScale(10),
+                  paddingTop: moderateVerticalScale(1, 15),
+                  height: verticalScale(36),
                 }}
               >
                 3
               </Text>
               <Text
                 style={{
-                  fontSize: 30,
+                  fontSize: moderateScale(28),
                   color: state.A4 ? "white" : "#929292",
                   fontWeight: "bold",
                   backgroundColor: state.A4 ? "#002CB6" : null,
-                  paddingLeft: 8,
+                  paddingLeft: moderateVerticalScale(10),
                   paddingRight: 8,
+                  paddingTop: moderateVerticalScale(1, 15),
+                  height: verticalScale(36),
+                }}
+              >
+                4
+              </Text>
+              <Text
+                style={{
+                  color: state.A4 ? "white" : "#929292",
+                  backgroundColor: state.A4 ? "#002CB6" : null,
+                  height: moderateVerticalScale(1, 14),
+                }}
+              ></Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            style={{ width: 130, marginBottom: verticalScale(10) }}
+            onPress={() => {
+              dispatch({ type: "A1Selected", payload: true });
+            }}
+          >
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#E8E8E8",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  color: "black",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                  textAlign: "center",
+                }}
+              >
+                1
+              </Text>
+            </View>
+            {/* <Image
+              source={require("../../assets/QuizScreenAssets/Button1.png")}
+            /> */}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ width: 130, marginBottom: verticalScale(10) }}
+            onPress={() => {
+              dispatch({ type: "A2Selected", payload: true });
+            }}
+          >
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#E8E8E8",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  color: "black",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                  textAlign: "center",
+                }}
+              >
+                2
+              </Text>
+            </View>
+            {/* <Image
+              source={require("../../assets/QuizScreenAssets/Button2.png")}
+            /> */}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ width: 130, marginBottom: verticalScale(10) }}
+            onPress={() => {
+              dispatch({ type: "A3Selected", payload: true });
+            }}
+          >
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#E8E8E8",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  color: "black",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                  textAlign: "center",
+                }}
+              >
+                3
+              </Text>
+            </View>
+            {/* <Image
+              source={require("../../assets/QuizScreenAssets/Button3.png")}
+            /> */}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ width: 130, marginBottom: verticalScale(10) }}
+            onPress={() => {
+              dispatch({ type: "A4Selected", payload: true });
+            }}
+          >
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#E8E8E8",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  color: "black",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                  textAlign: "center",
                 }}
               >
                 4
               </Text>
             </View>
-          </View>
-          <TouchableOpacity
-            style={{ width: 130, marginBottom: 5 }}
-            onPress={() => {
-              dispatch({ type: "A1Selected", payload: true });
-            }}
-          >
-            <Image
-              source={require("../../assets/QuizScreenAssets/Button1.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ width: 130, marginBottom: 5 }}
-            onPress={() => {
-              dispatch({ type: "A2Selected", payload: true });
-            }}
-          >
-            <Image
-              source={require("../../assets/QuizScreenAssets/Button2.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ width: 130, marginBottom: 5 }}
-            onPress={() => {
-              dispatch({ type: "A3Selected", payload: true });
-            }}
-          >
-            <Image
-              source={require("../../assets/QuizScreenAssets/Button3.png")}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ width: 130 }}
-            onPress={() => {
-              dispatch({ type: "A4Selected", payload: true });
-            }}
-          >
-            <Image
+            {/* <Image
               source={require("../../assets/QuizScreenAssets/Button4.png")}
-            />
+            /> */}
           </TouchableOpacity>
         </View>
-        <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignSelf: "flex-end",
+          }}
+        >
           <TouchableOpacity
             onPress={() => {
               dispatch({ type: "Correction" });
             }}
           >
-            <Image
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#FF0000",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  color: "white",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                  textAlign: "center",
+                }}
+              >
+                تصحيح
+              </Text>
+            </View>
+            {/* <Image
               source={require("../../assets/QuizScreenAssets/ButtonCorrection.png")}
-            />
+            /> */}
           </TouchableOpacity>
           <TouchableOpacity
             disabled={state.ButtonDisabled}
@@ -261,9 +447,35 @@ const QuizScreen = ({ navigation }) => {
               dispatch({ type: "Validate" });
             }}
           >
-            <Image
+            {/* <Image
+              style={{ height: verticalScale(43), width: scale(125) }}
               source={require("../../assets/QuizScreenAssets/ButtonValidate.png")}
-            />
+            /> */}
+            <View
+              style={{
+                height: verticalScale(34),
+                width: scale(113),
+                backgroundColor: "#27D004",
+                borderRadius: 5,
+                marginRight: scale(10),
+                shadowOffset: { width: 3, height: 3 },
+                shadowColor: "black",
+                shadowOpacity: 1,
+                shadowRadius: 5,
+              }}
+            >
+              <Text
+                adjustsFontSizeToFit={true}
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  fontSize: scale(28),
+                  fontFamily: "Hayah",
+                }}
+              >
+                تأكيد
+              </Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -274,15 +486,15 @@ const QuizScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D8D8D8",
+    backgroundColor: "#71B1FF",
   },
   Screen: {
     borderColor: "black",
     borderRadius: 3,
     borderWidth: 10,
-    backgroundColor: "#D8D8D8",
-    height: 163,
-    width: 163,
+    backgroundColor: "white",
+    height: verticalScale(163),
+    width: scale(163),
     alignSelf: "flex-end",
     position: "absolute",
   },
