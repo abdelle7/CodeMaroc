@@ -31,6 +31,19 @@ import * as RootNavigation from "./src/helper/RootNavigation";
 import { HeaderBackButton } from "@react-navigation/stack";
 import { Root, Popup } from "react-native-popup-confirm-toast";
 import CorrectionScren from "./src/screens/CorrectionScren";
+import firebase from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDGkeXDw9rr6t3QwYUWyuVX5v_WO5MA5FE",
+  authDomain: "code-maroc-2021.firebaseapp.com",
+  projectId: "code-maroc-2021",
+  storageBucket: "code-maroc-2021.appspot.com",
+  messagingSenderId: "769969167232",
+  appId: "1:769969167232:web:773908779cce71ae05bf65",
+  measurementId: "G-PFB6W7XP3W",
+};
+// Initialize Firebase
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 export default function App() {
   const Stack = createStackNavigator();

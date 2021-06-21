@@ -10,6 +10,7 @@ import {
   Animated,
 } from "react-native";
 import * as Font from "expo-font";
+import * as firebase from "firebase";
 import {
   scale,
   verticalScale,
@@ -21,6 +22,7 @@ import ImageButton from "../components/ImageButton";
 import { Quiz1 } from "../helper/QuizHelper";
 import QuizContext from "../contexts/QuizContext";
 import * as RootNavigation from "../helper/RootNavigation";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "A1Selected":
@@ -84,7 +86,8 @@ const reducer = (state, action) => {
           ButtonDisabled: true,
         };
       }
-
+    case "FetchQuiz":
+      return { ...state, Serie: { ...state.Serie, ...action.payload } };
     default:
       return state;
   }
@@ -101,13 +104,84 @@ const QuizScreen = ({ navigation }) => {
     isCounting: true,
     Answers: [],
     ButtonDisabled: false,
+    Serie: {},
   });
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   const fonts = {
     Hayah: require("../../assets/fonts/Hayah.ttf"),
   };
+  //const [urls, setUrls] = useState([""]);
+
+  const reference = firebase.storage().ref("/QuizSeries/Serie1");
+
+  async function listFilesAndDirectories(reference) {
+    return await reference.list().then((result) => {
+      // Loop over each item
+      result.items.forEach((ref) => {
+        (async () => {
+          try {
+            const url = await firebase
+              .storage()
+              .ref(ref.fullPath)
+              .getDownloadURL();
+            console.log(ref.fullPath);
+            dispatch({ type: "FetchQuiz", payload: url });
+          } catch (err) {
+            console.log(err);
+          }
+        })();
+      });
+
+      if (result.nextPageToken) {
+        return listFilesAndDirectories(reference, result.nextPageToken);
+      }
+
+      return Promise.resolve();
+    });
+  }
+  const onLoad = async () => {
+    //const docRef = database.collection("users").doc("O6m4TFfIjE42ZaNfvC7s");
+    const user = firebase.firestore().collection("QuizSeries").doc("Serie1");
+
+    await user
+      .get()
+      .then((Serie) => {
+        if (Serie.exists) {
+          let data = Serie.data();
+          //this.setState({ data: data });
+          dispatch({ type: "FetchQuiz", payload: data });
+          console.log(state.Serie);
+
+          //console.log("Document serie:", data);
+        } else {
+          // doc.data() will be undefined in this case
+          //this.setState({ data: null });
+          console.log("No such serie!");
+        }
+      })
+      .catch(function (error) {
+        //this.setState({ data: null });
+        console.log("Error getting serie:", error);
+      });
+  };
+
   useEffect(() => {
+    onLoad();
+    // listFilesAndDirectories(reference).then(() => {
+    //   console.log("Finished listing");
+    // });
+
+    // (async () => {
+    //   try {
+    //     const url = await firebase
+    //       .storage()
+    //       .ref("/QuizSeries/Serie1/1.png")
+    //       .getDownloadURL();
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // })();
     (async () => {
       try {
         await Font.loadAsync(fonts);
@@ -116,7 +190,7 @@ const QuizScreen = ({ navigation }) => {
         setError(err);
       }
     })();
-  }),
+  }, []),
     [fonts];
 
   if (error)
@@ -139,7 +213,10 @@ const QuizScreen = ({ navigation }) => {
           }}
           title={Quiz1[state.CurrentQuestion].name}
           isSign={true}
-          imageSource={Quiz1[state.CurrentQuestion].path}
+          //imageSource={Quiz1[state.CurrentQuestion].path}
+          imageSource={{
+            uri: state.Serie[state.CurrentQuestion + 1],
+          }}
         />
       </View>
       <View style={styles.container}>
