@@ -31,6 +31,7 @@ import * as RootNavigation from "./src/helper/RootNavigation";
 import { HeaderBackButton } from "@react-navigation/stack";
 import { Root, Popup } from "react-native-popup-confirm-toast";
 import CorrectionScren from "./src/screens/CorrectionScren";
+import QuizzesList from "./src/screens/QuizzesList";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -54,6 +55,11 @@ export default function App() {
               options={{ title: "الدروس" }}
               name={"lessons"}
               component={LessonsScreen}
+            />
+            <Stack.Screen
+              options={{ title: "سلسلة الإمتحانات" }}
+              name={"QuizzesList"}
+              component={QuizzesList}
             />
             <Stack.Screen
               options={{ title: "الإمتحان" }}

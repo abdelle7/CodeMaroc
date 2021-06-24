@@ -10,18 +10,42 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Root } from "react-native-popup-confirm-toast";
 import * as RootNavigation from "../helper/RootNavigation";
-import { Quiz1 } from "../helper/QuizHelper";
+import {
+  Quiz1,
+  Quiz2,
+  Quiz3,
+  Quiz4,
+  Quiz5,
+  Quiz6,
+  Quiz7,
+  Quiz8,
+  Quiz9,
+  Quiz10,
+} from "../helper/QuizHelper";
 
 const ResultScreen = ({ route }) => {
+  const Quizzes = [
+    Quiz1,
+    Quiz2,
+    Quiz3,
+    Quiz4,
+    Quiz5,
+    Quiz6,
+    Quiz7,
+    Quiz8,
+    Quiz9,
+    Quiz10,
+  ];
   const [screenHeight, setScreenHeight] = useState(0);
   const scrollEnabled = screenHeight > Dimensions.get("window").height - 100;
 
-  const Answers = route.params;
+  const { Answers } = route.params;
+  const { SerieNumber } = route.params;
   let RightAnswersCounter = 0;
   for (let index = 0; index < Quiz1.length; index++) {
     console.log();
     if (
-      JSON.stringify(Quiz1[index].Anwsers) ==
+      JSON.stringify(Quizzes[SerieNumber][index].Anwsers) ==
       JSON.stringify(Answers[index].userAnswer)
     ) {
       RightAnswersCounter++;
@@ -49,16 +73,17 @@ const ResultScreen = ({ route }) => {
                 style={{ width: "19.5%" }}
                 onPress={() => {
                   RootNavigation.navigate("Correction", {
-                    Answers: Quiz1[item.Qnumber].Anwsers,
+                    Answers: Quizzes[SerieNumber][item.Qnumber].Anwsers,
                     userAnswer: item.userAnswer,
-                    path: Quiz1[item.Qnumber].path,
+                    path: Quizzes[SerieNumber][item.Qnumber].path,
                   });
                 }}
               >
                 <LinearGradient
                   colors={
-                    JSON.stringify(Quiz1[item.Qnumber].Anwsers) ==
-                    JSON.stringify(item.userAnswer)
+                    JSON.stringify(
+                      Quizzes[SerieNumber][item.Qnumber].Anwsers
+                    ) == JSON.stringify(item.userAnswer)
                       ? ["#32FF00", "#32FF00", "#12A600"]
                       : ["#FF2D00", "#FF2D00", "#EE2500"]
                   }

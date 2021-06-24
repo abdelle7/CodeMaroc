@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <View style={{ flexDirection: "row", justifyContent: "center" }}>
             <ImageButton
-              title="quiz"
+              title="QuizzesList"
               navigation={navigation}
               imageSource={require("../../assets/HomeScreen/QuizButton.png")}
             />

@@ -18,7 +18,19 @@ import {
 } from "react-native-size-matters";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import ImageButton from "../components/ImageButton";
-import { Quiz1 } from "../helper/QuizHelper";
+import {
+  Quiz1,
+  Quiz2,
+  Quiz3,
+  Quiz4,
+  Quiz5,
+  Quiz6,
+  Quiz7,
+  Quiz8,
+  Quiz9,
+  Quiz10,
+} from "../helper/QuizHelper";
+
 import QuizContext from "../contexts/QuizContext";
 import * as RootNavigation from "../helper/RootNavigation";
 const reducer = (state, action) => {
@@ -72,7 +84,10 @@ const reducer = (state, action) => {
           isCounting: false,
           ButtonDisabled: true,
         };
-        RootNavigation.navigate("Result", state.Answers);
+        RootNavigation.navigate("Result", {
+          Answers: state.Answers,
+          SerieNumber: state.SerieNumber,
+        });
 
         return {
           ...state,
@@ -90,8 +105,20 @@ const reducer = (state, action) => {
   }
 };
 
-const QuizScreen = ({ navigation }) => {
-  const value = useContext(QuizContext);
+const QuizScreen = ({ navigation, route }) => {
+  const Quizzes = [
+    Quiz1,
+    Quiz2,
+    Quiz3,
+    Quiz4,
+    Quiz5,
+    Quiz6,
+    Quiz7,
+    Quiz8,
+    Quiz9,
+    Quiz10,
+  ];
+  //const value = useContext(QuizContext);
   const [state, dispatch] = useReducer(reducer, {
     CurrentQuestion: 0,
     A1: false,
@@ -101,6 +128,7 @@ const QuizScreen = ({ navigation }) => {
     isCounting: true,
     Answers: [],
     ButtonDisabled: false,
+    SerieNumber: route.params,
   });
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -137,9 +165,9 @@ const QuizScreen = ({ navigation }) => {
             height: Dimensions.get("window").height / 2.1,
             borderWidth: 1,
           }}
-          title={Quiz1[state.CurrentQuestion].name}
+          title={Quizzes[state.SerieNumber][state.CurrentQuestion].name}
           isSign={true}
-          imageSource={Quiz1[state.CurrentQuestion].path}
+          imageSource={Quizzes[state.SerieNumber][state.CurrentQuestion].path}
         />
       </View>
       <View style={styles.container}>
@@ -161,7 +189,7 @@ const QuizScreen = ({ navigation }) => {
                 isPlaying={state.isCounting}
                 key={state.CurrentQuestion}
                 size={moderateScale(100, 1.4)}
-                duration={30}
+                duration={10}
                 colors={[
                   ["#0A7530", 0.4],
                   ["#F7B801", 0.4],
